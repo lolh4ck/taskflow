@@ -1,0 +1,12 @@
+$kind: http-request
+name: http://localhost:8081/api/v1/tasks
+description: ""
+url: http://localhost:8081/api/v1/tasks
+method: GET
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 2000

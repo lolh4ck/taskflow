@@ -1,0 +1,15 @@
+$kind: http-request
+name: http://localhost:8081/api/v1/tasks
+description: ""
+url: http://localhost:8081/api/v1/tasks
+method: POST
+body:
+  type: text
+  content: "{\r
+
+    \  \"title\": \"Test 415\",\r
+
+    \  \"description\": \"Request without Content-Type\"\r
+
+    }"
+order: 1000
