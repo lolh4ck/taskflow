@@ -1,0 +1,12 @@
+$kind: http-request
+name: http://localhost:8081/api/v1/tasks/1
+description: ""
+url: http://localhost:8081/api/v1/tasks/123
+method: DELETE
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 1000
