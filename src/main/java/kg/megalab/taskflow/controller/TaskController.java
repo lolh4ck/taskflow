@@ -1,6 +1,7 @@
 package kg.megalab.taskflow.controller;
 
 import kg.megalab.taskflow.model.Task;
+import kg.megalab.taskflow.model.TaskStatus;
 import kg.megalab.taskflow.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,17 @@ public class TaskController {
     }
 
     @GetMapping
-    public List<Task> findAll(){
-        return taskService.findAll();
+    public List<Task> findAll(
+            @RequestParam(required = false) TaskStatus status,
+            @RequestParam(required = false) String search) {
+
+        return taskService.findAll(status, search);
+    }
+
+
+    @GetMapping("{id}")
+    public Task findById(@PathVariable Long id){
+        return taskService.findById(id);
     }
 
     @PostMapping
@@ -34,5 +44,16 @@ public class TaskController {
                 .buildAndExpand(created.getId())
                 .toUri();
         return ResponseEntity.created(location).body(created);
+    }
+
+    @PutMapping("/{id}")
+    public Task update(@PathVariable Long id, @RequestBody Task task) {
+        return taskService.update(id, task);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        taskService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

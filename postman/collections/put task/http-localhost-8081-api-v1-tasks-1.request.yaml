@@ -1,0 +1,23 @@
+$kind: http-request
+name: http://localhost:8081/api/v1/tasks/1
+description: ""
+url: http://localhost:8081/api/v1/tasks/1
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"Learn Spring MVC\",\r
+
+    \  \"description\": \"Practice PUT requests\",\r
+
+    \  \"status\": \"IN_PROGRESS\"\r
+
+    }"
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 1000
