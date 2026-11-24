@@ -1,12 +1,12 @@
 package kg.megalab.taskflow.controller;
 
-import kg.megalab.taskflow.model.Task;
+import kg.megalab.taskflow.dto.TaskCreateRequest;
+import kg.megalab.taskflow.dto.TaskResponse;
+import kg.megalab.taskflow.dto.TaskUpdateRequest;
 import kg.megalab.taskflow.model.TaskStatus;
 import kg.megalab.taskflow.service.TaskService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
@@ -21,34 +21,29 @@ public class TaskController {
     }
 
     @GetMapping
-    public List<Task> findAll(
+    public List<TaskResponse> findAll(
             @RequestParam(required = false) TaskStatus status,
             @RequestParam(required = false) String search) {
 
         return taskService.findAll(status, search);
     }
 
-
     @GetMapping("{id}")
-    public Task findById(@PathVariable Long id){
+    public TaskResponse findById(@PathVariable Long id){
         return taskService.findById(id);
     }
 
     @PostMapping
-    public ResponseEntity<Task> create(@RequestBody Task task){
-        Task created = taskService.create(task);
+    public ResponseEntity<TaskResponse> create(@RequestBody TaskCreateRequest request){
+        TaskResponse created = taskService.create(request);
+        URI location = URI.create("/api/v1/tasks/" + created.id());
 
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(created.getId())
-                .toUri();
         return ResponseEntity.created(location).body(created);
     }
 
     @PutMapping("/{id}")
-    public Task update(@PathVariable Long id, @RequestBody Task task) {
-        return taskService.update(id, task);
+    public TaskResponse update(@PathVariable Long id, @RequestBody TaskUpdateRequest request) {
+        return taskService.update(id, request);
     }
 
     @DeleteMapping("/{id}")
