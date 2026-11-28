@@ -1,0 +1,20 @@
+$kind: http-request
+name: http://localhost:8081/api/v1/tasks
+description: ""
+url: http://localhost:8081/api/v1/tasks?search=111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+method: GET
+queryParams:
+  - key: search
+    value: "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+    disabled: false
+    description: ""
+body:
+  type: json
+  content: ""
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 1000

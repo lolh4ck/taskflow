@@ -1,0 +1,29 @@
+$kind: http-request
+name: http://localhost:8081/api/v1/tasks
+description: ""
+url: http://localhost:8081/api/v1/tasks/1
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"Изучение Bean Validation\",\r
+
+    \    \"description\": \"Выполнение домашнего задания урока №67\",\r
+
+    \    \"status\": \"DONE\",\r
+
+    \    \"deadline\": \"2026-12-31\",\r
+
+    \    \"assignee\": null\r
+
+    }"
+settings:
+  protocolVersion: auto
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 1000

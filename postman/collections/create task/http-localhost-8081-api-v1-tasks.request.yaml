@@ -7,9 +7,13 @@ body:
   type: json
   content: "{\r
 
-    \  \"title\": \"Learn Java\",\r
+    \    \"title\": \"Изучение Bean Validation\",\r
 
-    \  \"description\": \"Study Spring Boot\"\r
+    \    \"description\": \"Выполнение домашнего задания урока №67\",\r
+
+    \    \"deadline\": \"2026-12-31\",\r
+
+    \    \"assignee\": \"BigBoss\"\r
 
     }"
 settings:
