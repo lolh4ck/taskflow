@@ -13,6 +13,8 @@ public class TaskMapper {
 
         task.setTitle(request.title());
         task.setDescription(request.description());
+        task.setDeadline(request.deadline());
+        task.setAssignee(request.assignee());
 
         return task;
     }
@@ -21,6 +23,8 @@ public class TaskMapper {
         task.setTitle(request.title());
         task.setDescription(request.description());
         task.setStatus(request.status());
+        task.setDeadline(request.deadline());
+        task.setAssignee(request.assignee());
     }
 
     public TaskResponse toResponse(Task task){
@@ -29,6 +33,9 @@ public class TaskMapper {
                 task.getTitle(),
                 task.getDescription(),
                 task.getStatus(),
-                task.getCreatedAt());
+                task.getCreatedAt(),
+                task.getDeadline(),
+                task.getAssignee()
+        );
     }
 }
